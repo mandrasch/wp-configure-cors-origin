@@ -71,6 +71,8 @@ function rest_filter_incoming_connections($errors)
     $request_server = $_SERVER['REMOTE_ADDR'];
     $origin = get_http_origin();
     
+    $options = get_option('wpconfigurecorsorigin_plugin_settings');
+
     // settings not configured yet, default mode => deactivated
     if ($options == false || $options['mode'] == 'all' || $options['mode'] == 'inactive') {
         return;
