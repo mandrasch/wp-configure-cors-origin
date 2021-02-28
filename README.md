@@ -19,3 +19,4 @@ Based on these tutorials
   - https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/
   - https://wordpress.org/plugins/simple-jwt-login/ (has enable CORS option page)
   - https://de.wordpress.org/plugins/wp-rest-api-authentication/
+  - https://wordpress.org/plugins/jwt-auth/
