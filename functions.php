@@ -27,11 +27,8 @@ namespace WpConfigureCorsOrigin;
 // Thanks to https://dev.to/robmarshall/wordpress-rest-api-cors-issues-13p7
 // Thanks to https://thoughtsandstuff.com/wordpress-rest-api-cors-issues/
 
-// TODO: use https://developer.wordpress.org/reference/hooks/rest_api_init/ ?
-add_action('init', __NAMESPACE__ . '\handle_preflight');
 
-// from tutorial, but not needed, see below?
-// add_filter('rest_authentication_errors', __NAMESPACE__ .'\rest_filter_incoming_connections');
+
 
 function handle_preflight()
 {
@@ -67,6 +64,8 @@ function handle_preflight()
         exit();
     }
 }
+// TODO: use https://developer.wordpress.org/reference/hooks/rest_api_init/ ?
+add_action('init', __NAMESPACE__ . '\handle_preflight');
 
 /* This should be handled by the headers? we don't really need it?
 function rest_filter_incoming_connections($errors)
@@ -80,6 +79,9 @@ function rest_filter_incoming_connections($errors)
     }
     return $errors;
 }*/
+// from tutorial, but not needed, see below?
+// add_filter('rest_authentication_errors', __NAMESPACE__ .'\rest_filter_incoming_connections');
+
 
 // ======== SETTINGS ===========
 
