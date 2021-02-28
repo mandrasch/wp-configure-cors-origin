@@ -27,9 +27,6 @@ namespace WpConfigureCorsOrigin;
 // Thanks to https://dev.to/robmarshall/wordpress-rest-api-cors-issues-13p7
 // Thanks to https://thoughtsandstuff.com/wordpress-rest-api-cors-issues/
 
-
-
-
 function handle_preflight()
 {
     $options = get_option('wpconfigurecorsorigin_plugin_settings');
@@ -64,23 +61,30 @@ function handle_preflight()
         exit();
     }
 }
+
 // TODO: use https://developer.wordpress.org/reference/hooks/rest_api_init/ ?
 add_action('init', __NAMESPACE__ . '\handle_preflight');
 
-/* This should be handled by the headers? we don't really need it?
+// TODO: This should be handled by the headers? why do we implement it?
 function rest_filter_incoming_connections($errors)
 {
     $request_server = $_SERVER['REMOTE_ADDR'];
     $origin = get_http_origin();
-    if ($origin !== 'https://yourfrontenddomain') {
+    
+    // settings not configured yet, default mode => deactivated
+    if ($options == false || $options['mode'] == 'all' || $options['mode'] == 'inactive') {
+        return;
+    }
+  
+    if ($options['mode'] == 'custom' && $origin !== $options['custom_allowed_origin']) {
         return new WP_Error('forbidden_access', $origin, array(
         'status' => 403
     ));
     }
     return $errors;
 }*/
-// from tutorial, but not needed, see below?
-// add_filter('rest_authentication_errors', __NAMESPACE__ .'\rest_filter_incoming_connections');
+
+add_filter('rest_authentication_errors', __NAMESPACE__ .'\rest_filter_incoming_connections');
 
 
 // ======== SETTINGS ===========
@@ -193,6 +197,7 @@ function validate_settings($input)
 
 function render_section_basic()
 {
+    echo "<p>CORS request can be cached by browser, so give it some time ;-)</p>";
     //echo '<p>This is the first (and only) section in my settings.</p>';
     //echo '<p>If you want to allow all origins, enter a \'*\'</p>';
 }
