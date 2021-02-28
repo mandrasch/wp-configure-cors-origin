@@ -3,6 +3,8 @@ Configure allow-origin for REST calls from different domains for headless wordpr
 
 State: Experimental, no warranty, don't use in production (without careful review)
 
+![Screenshot with configuration options](screenshot.png)
+
 Based on these tutorials
 
 - https://dev.to/robmarshall/wordpress-rest-api-cors-issues-13p7
