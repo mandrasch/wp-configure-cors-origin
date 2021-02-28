@@ -1,5 +1,7 @@
-# wp-headless-cors-origin
+# WP Configure CORS origin
 Configure allow-origin for REST calls from different domains for headless wordpress
+
+State: Experimental, no warranty, don't use in production (without careful review)
 
 Based on these tutorials
 
@@ -11,4 +13,3 @@ Based on these tutorials
 - Support "https://frontendomain.org" as well als "https://www.frontenddomain.org"
 - What about multiple allowed origins?
 
-State: Experimental, no warranty. 
