@@ -15,4 +15,7 @@ Based on these tutorials
 - Support "https://frontendomain.org" as well als "https://www.frontenddomain.org"
 - What about multiple allowed origins?
 - Is it better to set this via .htaccess? (Performance?)
-
+- Compare this solution to solutions implemented in
+  - https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/
+  - https://wordpress.org/plugins/simple-jwt-login/ (has enable CORS option page)
+  - https://de.wordpress.org/plugins/wp-rest-api-authentication/
