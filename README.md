@@ -14,4 +14,5 @@ Based on these tutorials
 
 - Support "https://frontendomain.org" as well als "https://www.frontenddomain.org"
 - What about multiple allowed origins?
+- Is it better to set this via .htaccess? (Performance?)
 
