@@ -84,7 +84,7 @@ function rest_filter_incoming_connections($errors)
     ));
     }
     return $errors;
-}*/
+}
 
 add_filter('rest_authentication_errors', __NAMESPACE__ .'\rest_filter_incoming_connections');
 
